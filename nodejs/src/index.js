@@ -9,6 +9,10 @@ const port = 3000;
 const route = require('./routes');
 /* == const route = require('./routes/index.js'); */
 
+//database
+const db = require('./config/db');
+db.connect();
+
 //static
 app.use(express.static(path.join(__dirname,'public')));
 
@@ -32,5 +36,5 @@ app.set('views',path.join(__dirname, 'resources','views'));
 route(app);
 
 app.listen(port, () => {
-  console.log(`Example app listening on port http://localhost:${port}`);
+  console.log(`App listening on port http://localhost:${port}`);
 });
